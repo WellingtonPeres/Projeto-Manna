@@ -8,5 +8,6 @@ public class Button : MonoBehaviour
     public void UpdateArray()
     {
         MinigameManager.instance.UpdateArray();
+        MinigameManager.instance.AddSubtractPoints();
     }
 }
