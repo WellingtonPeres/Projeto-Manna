@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e6e32fecbfd44fab946fa160e4861924
+labels:
+- gvh
+<<<<<<< Updated upstream
+- gvh_version-11.3.0
+=======
+- gvh_version-11.0.0
+>>>>>>> Stashed changes
+- gvhp_exportpath-Firebase/Editor/network_request.py
+timeCreated: 1480838400
+DefaultImporter:
+  userData:
+  assetBundleName:
+  assetBundleVariant:
