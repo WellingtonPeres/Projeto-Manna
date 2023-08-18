@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 9e50d834f55cba848af55d22ef5d7979
+<<<<<<<< Updated upstream:Assets/Scritps/UIManager.cs.meta
+guid: af50b7bb7171d0840bfa1020d0739fba
+========
+guid: 9100cd532fb68aa4ebd07ccfc89d9f8b
+>>>>>>>> Stashed changes:Assets/Leaderboard.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
