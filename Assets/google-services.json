@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "102245234968",
+    "firebase_url": "https://projeto-manna-default-rtdb.firebaseio.com",
+    "project_id": "projeto-manna",
+    "storage_bucket": "projeto-manna.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102245234968:android:2f5333d212176e541cc66d",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.ProjetoManna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102245234968-kbrh2jojhdv16fcjgpjgfq0rj1bg1ukf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbAUrpP3jNDAoqhmA72OzaPgd5kuXhHKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102245234968-kbrh2jojhdv16fcjgpjgfq0rj1bg1ukf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
