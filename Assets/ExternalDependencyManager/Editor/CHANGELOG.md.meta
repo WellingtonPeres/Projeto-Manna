@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c59750df28b54a599d43c4d5204fb1b8
+labels:
+- gvh
+<<<<<<< Updated upstream
+- gvh_version-11.3.0
+=======
+- gvh_version-11.0.0
+>>>>>>> Stashed changes
+- gvhp_exportpath-ExternalDependencyManager/Editor/CHANGELOG.md
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
