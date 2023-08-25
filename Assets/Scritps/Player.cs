@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
     [Header("Player Settings")]
     [SerializeField] private float moveSpeed = 7;
     [SerializeField] private float playerRadiusCapsule = 0.7f;
@@ -14,7 +16,15 @@ public class Player : MonoBehaviour
     [Header("Get GameInput Script")]
     [SerializeField] private GameInput gameInput;
 
+
+    public bool isInteraction = false;
+
     private bool isWalking;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {

@@ -29,6 +29,39 @@ public class MinigameManager : MonoBehaviour
     public float timerReward;
     public Image timerImage;
 
+<<<<<<< Updated upstream
+=======
+    [Header("Imagem De erro ou acerto da questão")]
+    public GameObject[] ledDesligadas;
+    public GameObject[] ledLigadas;
+    public GameObject[] ledQueimadas;
+
+    [Header("Quantidade de Slots existentes")]
+    public int[] answerArray;
+    int count;
+    bool equal;
+    int requestedPosition;
+
+    [Header("Botão para sair do minigame e ocultar botão de verificação")]
+    public GameObject buttonVerification;
+    public GameObject buttonBackGame;
+
+    [Header("Regras do puzzle 2")]
+    public TextMeshProUGUI voltsText;
+    public GameObject slotCorrect;
+
+    [Header("Qual Puzzle da vez")]
+    public int num;
+
+    // Sempre que interagir com uma máquina, ativar o puzzle referente a ela e ao finalizar destruir o Puzzle
+
+    // Importar o Script do banco de dados
+    [Header("Information for dada base")]
+    //public Leaderboard leaderboard; ******************
+
+    private bool correctAnswer = false;
+
+>>>>>>> Stashed changes
     private void Awake() //Creates the manager instance and triggers the initialization of the array.
     {
         if (instance == null)
@@ -109,6 +142,30 @@ public class MinigameManager : MonoBehaviour
             }
         }
         Debug.Log(equal);
+
+        // Puzzle 2 ---------------------------------
+        if (num == 2)
+        {
+            if (voltsText != null && slotCorrect.gameObject.GetComponentInChildren<DraggableItem>() != null)
+            {
+                if (slotCorrect.gameObject.GetComponentInChildren<DraggableItem>().item.name == "PotênciometroDesligado")
+                {
+                    voltsText.text = "417 " + "V";
+                }
+                else if (slotCorrect.gameObject.GetComponentInChildren<DraggableItem>().item.name == "PotênciometroCorreto")
+                {
+                    voltsText.text = "2.06 " + "V";
+                }
+                else if (slotCorrect.gameObject.GetComponentInChildren<DraggableItem>().item.name == "PotênciometroExplode")
+                {
+                    voltsText.text = "4.41 " + "V";
+                }
+            }
+            else
+            {
+                voltsText.text = "0.00 " + "V";
+            }
+        }
     }
     public void AddSubtractPoints()
     {
@@ -118,6 +175,15 @@ public class MinigameManager : MonoBehaviour
             AddTimerPoints();
             ResetMinigamePoints();
             UpdateTmpro();
+<<<<<<< Updated upstream
+=======
+
+            // --------------- Informações para o banco de dados ---------------
+            // Salvar "Nome da Escola", "Nickname", "Pontos"
+            //StartCoroutine(leaderboard.SubmitScoreRoutine(playerPoints));******************
+            correctAnswer = true;
+            CorrectQuest(false, true);
+>>>>>>> Stashed changes
         }
         else
         {

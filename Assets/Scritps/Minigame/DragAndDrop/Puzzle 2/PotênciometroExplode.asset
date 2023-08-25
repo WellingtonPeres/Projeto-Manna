@@ -10,11 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a37cd5e86c3f30e4ebd5a9e4d8055ea9, type: 3}
-<<<<<<<< Updated upstream:Assets/Scritps/Minigame/DragAndDrop/Fio.asset
-  m_Name: Fio
-========
-  m_Name: SensorDeInfravermelho
->>>>>>>> Stashed changes:Assets/Scritps/Minigame/DragAndDrop/Puzzle 1/SensorDeInfravermelho.asset
+  m_Name: Lampada
   m_EditorClassIdentifier: 
-  ItemIndex: 1
-  icon: {fileID: 21300000, guid: 120bf54dff785a0429b068b814e9c12a, type: 3}
+  ItemIndex: 4
+  icon: {fileID: 21300000, guid: 0ac55f9f886d827408c102bdf33c5ff7, type: 3}
