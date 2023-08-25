@@ -19,9 +19,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public GameObject selfPrefab;
     public int Position;
 
-
-
-
     private void Awake()
     {
         image.sprite = item.icon;
@@ -29,11 +26,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         mousePosition.Enable();
         mousePosition.performed += context => { currentMousePosition = context.ReadValue<Vector2>(); };
     }
+
     private void Start()
     {
         RefreshCount();
     }
-
   
     public void RefreshCount() //Refreshes the item stack number
     {
@@ -46,6 +43,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             countText.text = null;
         }
     }
+
     public void failedDrag() //Triggers when an previously stacked item fails to be dragged to a valid location, in order to keep each slot with a single item.
     {
         if (parentAfterDrag.childCount > 0)
@@ -54,14 +52,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             Destroy(gameObject);
         }
     }
+
     public void addCount() //Adds an item to the stack, triggers when a certain item is placed on top of the same kind of item, stacking them.
     {
         count++;
         RefreshCount();
     }
-   
-    
-   
 
     public void OnBeginDrag(PointerEventData eventData) //Triggers when the item is clicked, either drags the item itself if its not stacked, or a copy of it if stacked
     {
@@ -89,13 +85,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.position = currentMousePosition;
     }
+
     public void OnEndDrag(PointerEventData eventData) //Places the item on the correct place and updates the array.
     {
         RefreshCount();
         transform.SetParent(parentAfterDrag);
         transform.position = parentAfterDrag.position;
         image.raycastTarget = true;
-        //MinigameManager.instance.UpdateArray();
+        MinigameManager.instance.UpdateArray();
     }
-
 }

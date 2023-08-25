@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< Updated upstream:Assets/PlayerManager.cs.meta
-guid: 0503f989bf368db45b7f0602140ab58a
-========
-guid: 76f9656b51a172342a882d6920a1e8bc
->>>>>>>> Stashed changes:Assets/Scritps/LookCamera.cs.meta
+guid: 274c3e661827d1d43baa297a84876dc3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

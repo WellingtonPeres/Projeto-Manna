@@ -9,14 +9,15 @@ public class MinigameManager : MonoBehaviour
 {
     [Header("Slots for minegame")]
     public static MinigameManager instance;
+     
+    [Header("Slots dos Itens")]
     public Transform slotsParent;
     public GameObject[] slotsArray;
-    public int[] answerArray;
 
-    [Header("Settings for points")]
+    [Header("Atualizar o texto de pontos do aluno")]
     public TextMeshProUGUI textMeshProUGUI;
     public int currentMinigamePoints;
-    public int defaultMinigamePoints;
+    public int defaultMinigamePoints = 10;
     public int playerPoints;
 
     [Header("Time for correct answer")]
@@ -25,13 +26,26 @@ public class MinigameManager : MonoBehaviour
     public float timerReward;
     public Image timerImage;
 
-    // Importar o Script do banco de dados
-    [Header("Information for dada base - FootLocker")]
-    //public Leaderboard leaderboard; ******************
+    [Header("Imagem De erro ou acerto da questão")]
+    public GameObject[] ledDesligadas;
+    public GameObject[] ledLigadas;
+    public GameObject[] ledQueimadas;
 
-    private int count;
-    private bool equal;
-    private int requestedPosition;
+    [Header("Quantidade de Slots existentes")]
+    public int[] answerArray;
+    int count;
+    bool equal;
+    int requestedPosition;
+
+    [Header("Botão para sair do minigame e ocultar botão de verificação")]
+    public GameObject buttonVerification;
+    public GameObject buttonBackGame;
+
+    // Sempre que interagir com uma máquina, ativar o puzzle referente a ela e ao finalizar destruir o Puzzle
+
+    // Importar o Script do banco de dados
+    [Header("Information for dada base")]
+    //public Leaderboard leaderboard; ******************
 
     private bool correctAnswer = false;
 
@@ -45,6 +59,7 @@ public class MinigameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
         InitializeArray();
         ResetMinigamePoints();
         ResetTimer();
@@ -112,7 +127,9 @@ public class MinigameManager : MonoBehaviour
                 slotsArray[i].GetComponent<InventorySlot>().itemIndex = 0;
             }
         }
+
         equal = true;
+
         for (int i = 0; i < slotsParent.childCount; i++)
         {
             if (answerArray[i] != slotsArray[i].GetComponent<InventorySlot>().itemIndex)
@@ -120,6 +137,11 @@ public class MinigameManager : MonoBehaviour
                 equal = false;
             }
         }
+
+        ResetLeds(true);
+        CorrectQuest(true, false);
+        WrongQuest(true, false);
+
         Debug.Log(equal);
     }
 
@@ -137,6 +159,9 @@ public class MinigameManager : MonoBehaviour
             // Salvar "Nome da Escola", "Nickname", "Pontos"
             //StartCoroutine(leaderboard.SubmitScoreRoutine(playerPoints));******************
             correctAnswer = true;
+            ResetMinigamePoints();
+            UpdateTmpro();
+            CorrectQuest(false, true);
         }
         else
         {
@@ -145,12 +170,13 @@ public class MinigameManager : MonoBehaviour
                 currentMinigamePoints--;
             }
             UpdateTmpro();
+            WrongQuest(false, true);
         }
     }
 
     public void UpdateTmpro()
     {
-        textMeshProUGUI.text = $"{playerPoints}";
+        textMeshProUGUI.text = $"Pontos por acertar: {playerPoints}";
     }
 
     public void ResetMinigamePoints()
@@ -180,6 +206,41 @@ public class MinigameManager : MonoBehaviour
             {
                 timerReward = Mathf.Round(timer) / 15;
             }
+        }
+    }
+
+    public void ResetLeds(bool activeLedDesligadas)
+    {
+        for (int i = 0; i < ledDesligadas.Length; i++)
+        {
+            ledDesligadas[i].SetActive(activeLedDesligadas);
+        }
+    }
+
+    public void CorrectQuest(bool activeLedDesligadas, bool activeLedLigadas)
+    {
+        for (int i = 0; i < ledDesligadas.Length; i++)
+        {
+            ledDesligadas[i].SetActive(activeLedDesligadas);
+            ledLigadas[i].SetActive(activeLedLigadas);
+        }
+    }
+
+    public void WrongQuest(bool activeLedDesligadas, bool activeLedQueimadas)
+    {
+        for (int i = 0; i < ledDesligadas.Length; i++)
+        {
+            ledDesligadas[i].SetActive(activeLedDesligadas);
+            ledQueimadas[i].SetActive(activeLedQueimadas);
+        }
+    }
+
+    public void ShowButtonBackGame()
+    {
+        if (equal)
+        {
+            buttonVerification.SetActive(false);
+            buttonBackGame.SetActive(true);
         }
     }
 }
